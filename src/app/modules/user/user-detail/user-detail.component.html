@@ -1,0 +1,21 @@
+<fieldset>
+    <legend>User Detail Component</legend>
+    <div *ngIf="user">
+        <div>
+            <span>id = {{ user.id }}</span>
+        </div>
+        <div>
+            <label for="name">Name:</label>
+            <input id="name" [(ngModel)]="user.name" placeholder="Insert a name" />
+        </div>
+        <div>
+            <label for="age">Age:</label>
+            <input id="age" [(ngModel)]="user.age" placeholder="Insert an age" />
+        </div>
+        <br>
+        <div>
+            <button routerLink="/user">Back</button>
+            <button (click)="save()">Save</button>
+        </div>
+    </div>
+</fieldset>

@@ -1,0 +1,24 @@
+<fieldset>
+    <legend>Users List Component</legend>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.age }}</td>
+                <td>
+                    <button routerLink="/user/{{user.id}}">edit</button>
+                    <button (click)="onClickDelete(user)">delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</fieldset>
