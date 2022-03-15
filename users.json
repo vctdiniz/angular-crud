@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "name": "Victor Diniz",
+      "age": "37",
+      "id": 4
+    },
+    {
+      "name": "Alexandre",
+      "age": 69,
+      "id": 5
+    },
+    {
+      "name": "Leo",
+      "age": "60",
+      "id": 6
+    }
+  ]
+}
