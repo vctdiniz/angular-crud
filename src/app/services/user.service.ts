@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { User } from '@models/user.model';
+import { Observable } from 'rxjs';
 
 const baseUrl = `http://localhost:3000/users`;
 
@@ -8,30 +10,26 @@ const baseUrl = `http://localhost:3000/users`;
 })
 export class UserService {
 
-  // httpOptions = {
-  //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  // };
-
   constructor(private http: HttpClient) { }
 
-  getAll() {
-    return this.http.get<any[]>(baseUrl);
+  getAll(): Observable<User[]> {
+    return this.http.get<User[]>(baseUrl);
   }
 
-  getById(id: number) {
-    return this.http.get<any>(`${baseUrl}/${id}`);
+  getById(id: number): Observable<User> {
+    return this.http.get<User>(`${baseUrl}/${id}`);
   }
 
-  create(params: any) {
-    return this.http.post(baseUrl, params);
+  create(params: any): Observable<User> {
+    return this.http.post<User>(baseUrl, params);
   }
 
-  update(user: any) {
-    return this.http.put(`${baseUrl}/${user.id}`, user);
+  update(user: any): Observable<User> {
+    return this.http.put<User>(`${baseUrl}/${user.id}`, user);
   }
 
-  delete(id: string) {
-    return this.http.delete(`${baseUrl}/${id}`);
+  delete(id: string): Observable<User> {
+    return this.http.delete<User>(`${baseUrl}/${id}`);
   }
 
 }

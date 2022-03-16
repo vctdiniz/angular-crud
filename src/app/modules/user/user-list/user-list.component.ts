@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '@models/user.model';
 import { UserService } from '@services/user.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { UserService } from '@services/user.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  users: any;
+  users: User[] = [];
 
   constructor(private userService: UserService) { }
 
@@ -16,12 +17,12 @@ export class UserListComponent implements OnInit {
   }
 
   loadUsers() {
-    this.userService.getAll().subscribe(response => {
-      this.users = response;
+    this.userService.getAll().subscribe((res: User[]) => {
+      this.users = res;
     });
   }
 
-  onClickDelete(user: any) {
+  onClickDelete(user: User) {
     if (confirm('are you sure?')) {
       this.userService.delete(user.id).subscribe({
         next: () => {
