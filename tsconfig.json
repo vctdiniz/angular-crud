@@ -25,7 +25,8 @@
     "resolveJsonModule": true,
     "paths": {
       "@services/*": ["app/services/*"],
-      "@models/*": ["app/models/*"]
+      "@models/*": ["app/models/*"],
+      "@components/*": ["app/shared/components/*"],
     }
   },
   "angularCompilerOptions": {
